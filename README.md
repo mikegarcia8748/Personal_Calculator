@@ -1,4 +1,4 @@
-# Personal_Calculator
+# Personal Calculator
 The "Personal Calculator" project is a remarkable endeavor tailored for individual use, meticulously crafted as part of my journey in mastering Kotlin development within Android Studio. At its core, this project serves as an immersive training ground, enabling me to delve into the intricacies of Kotlin while constructing a practical and functional application.
 
 Key Attributes:

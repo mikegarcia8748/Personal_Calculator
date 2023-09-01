@@ -4,19 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ActivityCalculator">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent=".15"
+        app:layout_constraintTop_toBottomOf="@+id/appbarlayout" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/txt_CalculatorInput"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="123456789"
         android:gravity="end|bottom"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:textSize="28sp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        app:layout_constraintBottom_toTopOf="@+id/txt_CalculatorResult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerview" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/txt_CalculatorResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end|bottom"
+        android:textSize="32sp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -26,7 +63,7 @@
         android:weightSum="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".6"
+        app:layout_constraintHeight_percent=".5"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
@@ -57,6 +94,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_divide"
+                android:onClick="initOperators"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
         </LinearLayout>
@@ -72,6 +110,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_7"
+                android:onClick="initNumericButtons"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 
@@ -80,6 +119,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_8"
+                android:onClick="initNumericButtons"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 
@@ -88,6 +128,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_9"
+                android:onClick="initNumericButtons"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 
@@ -96,6 +137,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_multiply"
+                android:onClick="initOperators"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
         </LinearLayout>
@@ -110,6 +152,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_4"
+                android:onClick="initNumericButtons"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 
@@ -118,6 +161,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_5"
+                android:onClick="initNumericButtons"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 
@@ -126,6 +170,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_6"
+                android:onClick="initNumericButtons"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 
@@ -134,6 +179,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_subtract"
+                android:onClick="initOperators"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
         </LinearLayout>
@@ -149,6 +195,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_1"
+                android:onClick="initNumericButtons"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 
@@ -157,6 +204,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_2"
+                android:onClick="initNumericButtons"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 
@@ -165,6 +213,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_3"
+                android:onClick="initNumericButtons"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 
@@ -173,6 +222,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_addition"
+                android:onClick="initOperators"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
         </LinearLayout>
@@ -188,6 +238,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_0"
+                android:onClick="initNumericButtons"
                 android:layout_margin="2dp"
                 android:layout_weight="2"/>
 
@@ -196,6 +247,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_point"
+                android:onClick="onDecimalPoint"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 
@@ -204,6 +256,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/btn_equals"
+                android:onClick="onCalculate"
                 android:layout_margin="2dp"
                 android:layout_weight="1"/>
 

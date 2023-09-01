@@ -10,7 +10,7 @@
     <string name="btn_8">8</string>
     <string name="btn_9">9</string>
     <string name="btn_0">0</string>
-    <string name="btn_multiply">x</string>
+    <string name="btn_multiply">*</string>
     <string name="btn_divide">/</string>
     <string name="btn_addition">+</string>
     <string name="btn_subtract">-</string>
